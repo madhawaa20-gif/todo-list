@@ -278,11 +278,13 @@ function updateFilters() {
     });
 }
 
+
 taskForm.addEventListener("submit", event => {
     event.preventDefault();
 
     const title = taskInput.value.trim();
     const date = taskDate.value;
+    const time = taskTime.value;
 
     if (!title) {
         showToast("Nama tugas tidak boleh kosong.");
@@ -295,14 +297,11 @@ taskForm.addEventListener("submit", event => {
         return;
     }
 
-    addTask(title, date);
-
-    if (tasks.some(task => task.title === title &&
-        task.date === date && !task.completed)) {
-        taskForm.reset();
-        taskInput.focus();
-    }
+    addTask(title, date, time);
+    taskForm.reset();
+    taskInput.focus();
 });
+
 
 document.querySelectorAll(".filter").forEach(button => {
     button.addEventListener("click", () => {
