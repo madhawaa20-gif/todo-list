@@ -83,6 +83,151 @@
                     autocomplete="off"
                     required
                 >
+                
+<label class="sr-only" for="taskDate">Tenggat tugas</label>
+<input
+    id="taskDate"
+    type="date"
+    aria-label="Tanggal tenggat tugas"
+>
+
+<label class="sr-only" for="taskTime">Jam pengingat</label>
+<input
+    id="taskTime"
+    type="time"
+    aria-label="Jam pengingat"
+>
+
+<button type="submit" class="add-button">
+    <span>+</span> Tambah
+</button>
+
+            </form>
+
+            <div class="filters" aria-label="Filter tugas">
+                <button class="filter active" data-filter="all" type="button">
+                    Semua
+                </button>
+                <button class="filter" data-filter="pending" type="button">
+                    Aktif
+                </button>
+                <button class="filter" data-filter="completed" type="button">
+                    Selesai
+                </button>
+            </div>
+
+            <div id="taskList" class="task-list"></div>
+
+            <div id="emptyState" class="empty-state">
+                <div class="empty-icon">✦</div>
+                <h3>Belum ada tugas</h3>
+                <p>Tambahkan tugas pertamamu dan mulai produktif!</p>
+            </div>
+
+            <div class="list-footer">
+                <span id="footerText">0 tugas tersisa</span>
+                <button id="clearCompleted" type="button" class="text-button">
+                    Hapus yang selesai
+                </button>
+            </div>
+        </section>
+
+        <footer>
+            Dibuat dengan fokus dan semangat <span>♥</span>
+            <p>Taskly · Simpel, teratur, produktif.</p>
+        </footer>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#10101b">
+    <title>Taskly — To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app">
+        <header class="topbar">
+            <a href="#" class="brand">
+                <span class="brand-icon">✓</span>
+                Taskly<span class="brand-dot">.</span>
+            </a>
+            <span class="status"><span></span> Produktif hari ini</span>
+        </header>
+
+        <section class="welcome">
+            <p class="eyebrow">RUANG PRODUKTIVITASMU</p>
+            <h1>Kerjakan dengan <span>lebih teratur.</span></h1>
+            <p class="subtitle">
+                Satu langkah kecil hari ini, satu kemajuan besar besok.
+            </p>
+        </section>
+
+        <section class="stats">
+            <article class="stat-card">
+                <span class="stat-label">Total tugas</span>
+                <strong id="totalTasks">0</strong>
+                <span class="stat-note">Semua aktivitasmu</span>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label">Belum selesai</span>
+                <strong id="pendingTasks">0</strong>
+                <span class="stat-note">Saatnya dikerjakan</span>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label">Selesai</span>
+                <strong id="completedTasks">0</strong>
+                <span class="stat-note">Langkah yang tercapai</span>
+            </article>
+        </section>
+
+        <section class="progress-card">
+            <div class="progress-heading">
+                <div>
+                    <h2>Progres harian</h2>
+                    <p>Terus bergerak menuju targetmu.</p>
+                </div>
+                <strong id="progressText">0%</strong>
+            </div>
+            <div
+                class="progress-track"
+                role="progressbar"
+                aria-label="Progres penyelesaian tugas"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+                id="progressBar"
+            >
+                <div id="progressFill"></div>
+            </div>
+        </section>
+
+        <section class="tasks-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">DAFTAR AKTIVITAS</p>
+                    <h2>Tugasmu <span id="taskCount">(0)</span></h2>
+                </div>
+            </div>
+
+            <form id="taskForm" class="task-form">
+                <label class="sr-only" for="taskInput">Nama tugas</label>
+                <input
+                    id="taskInput"
+                    type="text"
+                    maxlength="150"
+                    placeholder="Apa yang ingin kamu kerjakan?"
+                    autocomplete="off"
+                    required
+                >
                 <label class="sr-only" for="taskDate">Tenggat tugas</label>
                 <input
                     id="taskDate"
