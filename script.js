@@ -327,7 +327,7 @@ clearCompleted.addEventListener("click", () => {
 renderTasks();
 updateFilters();
 
-const STORAGE_KEY = "taskly-tasks-v1";
+
 
 const taskForm = document.getElementById("taskForm");
 const taskInput = document.getElementById("taskInput");
